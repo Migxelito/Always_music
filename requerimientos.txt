@@ -1,0 +1,65 @@
+Antes de iniciar este desafío deberás crear una base de datos y una tabla con las siguientes columnas:
+● Nombre
+● Rut
+● Curso
+● Nivel
+
+Requerimientos:
+1. Realizar la conexión con PostgreSQL con la clase Client. --LISTO--
+
+2. Crear una función asíncrona para registrar un nuevo estudiante en la base de datos. --LISTO--
+node index.js nuevo 'Brian May' '12.345.678-9' Guitarra 7
+node index.js nuevo 'Freddie Mercury' '12.345.679-8' Piano 8
+node index.js nuevo 'John Deacon' '12.345.876-9' Bajo 7
+node index.js nuevo 'Roger Taylor' '12.345.789-8' Bateria 8
+
+3. Crear una función asíncrona para obtener por consola el registro de un estudiante por medio de su rut. --LISTO--
+node index.js rut '12.345.678-9'
+
+4. Crear una función asíncrona para obtener por consola todos los estudiantes registrados. --LISTO--
+node index.js consulta
+
+5. Crear una función asíncrona para actualizar los datos de un estudiante en la base de datos. --LISTO--
+node index.js editar 'Marilyn Manson' '12.345.678-9' Voz 6 '12.345.678-9'
+
+6. Crear una función asíncrona para eliminar el registro de un estudiante de la base de datos. --LISTO--
+node index.js eliminar '12.345.678-9'
+
+Primeros pasos:
+1.- En sentencias.sql 
+    a.- Creamos base de datos alwaysmusic y ejecutamos el contenido.
+
+2.- En .env colocamos lo siguiente:
+    PG_USER="postgres"
+    PG_HOST="localhost"
+    PG_DATABASE="alwaysmusic"
+    PG_PORT=5432
+
+3.- En la terminal ejecutamos:
+    a.- npm init -y
+    b.- npm i pg dotenv
+
+4.- En index.js:
+    a.- const { Client } = require('pg');
+    b.- require('dotenv').config();
+    c.- const config = {
+        user: process.env.PG_USER,
+        host: process.env.PG_HOST,
+        database: process.env.PG_DATABASE,
+        port: process.env.PG_PORT,
+        }
+    d.- Completar los Requerimientos.
+
+5.- En la terminal luego de todos los Requerimientos ejecutamos:
+    2.- node index.js nuevo 'Brian May' '12.345.678-9' Guitarra 7
+        node index.js nuevo 'Freddie Mercury' '12.345.679-8' Piano 8
+        node index.js nuevo 'John Dwacon' '12.345.876-9' Bajo 7
+        node index.js nuevo 'Roger Taylor' '12.345.789-8' Bateria 8
+
+    3.- node index.js rut '12.345.678-9'
+
+    4.- node index.js consulta
+
+    5.- node index.js editar 'Marilyn Manson' '12.345.678-9' Voz 6 '12.345.678-9'
+
+    6.- node index.js eliminar '12.345.678-9'
